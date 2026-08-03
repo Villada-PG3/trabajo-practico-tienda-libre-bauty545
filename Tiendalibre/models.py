@@ -18,12 +18,12 @@ class Producto(models.Model):
     stock = models.IntegerField()
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True, blank=True)
     marca = models.CharField(max_length=50, default='Marca Desconocida')
-    imagen = models.ImageField(upload_to='productos/', null=True, blank=True)
+    imagen = models.ImageField(upload_to='', null=True, blank=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     activo = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.nombre
+        return f'{self.nombre} - {self.marca} - {self.categoria} - ${self.precio} - {self.stock}'
 
     class Meta:
         verbose_name = "Producto"
