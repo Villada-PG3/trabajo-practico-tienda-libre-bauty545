@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from Tiendalibre.views import home, sobremi
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home, name='home'),
+    path('acerca-de-mi/', sobremi, name='acerca-de-mi'),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background: #bababa;
+        color: #222;
+        line-height: 1.6;
+    }
+    header {
+        background: #949494;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        padding: 30px 20px;
+        text-align: center;
+        border-radius: 15px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        margin: 15px auto 0 auto;
+        width: 92%;
+    }
+    .card {
+        background: #CBCBCB;
+        color: #222;
+        line-height: 1.6;
+        margin: 40px;
+        padding: 20px;
+        border-radius: 15px;
+    }
+    nav {
+        text-align: center;
+        background: #6D8196;
+        padding: 10px;
+        margin: auto;
+        width: 93.3%;
+    }
+    nav a {
+        color: #dcdcdc;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+        transition: color 0.2s, text-decoration 0.2s, font-size 0.2s;
+    }
+    table {
+        table-layout: fixed;
+        border: 2px solid #222;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 2px solid #222;
+        text-align: center;
+        padding: 10px;
+    }
+    tbody tr {
+        transition: background-color 0.2s;
+    }
+    tbody tr:hover {
+        background-color: #6D8196;
+        color: white;
+        cursor: default;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 15px;
+    }
+    form input, form textarea {
+        margin-bottom: 8px;
+    }
+    .form-control {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 15px;
+        width: 100%;
+    }
+    textarea.form-control {
+        resize: vertical;
+        min-height: 80px;
+    }
+    .contador {
+        text-align: right;
+        font-size: 0.8rem;
+        color: #555;
+        margin-top: -4px;
+        margin-bottom: 8px;
+    }
+    .contador.limite {
+        color: #b91c1c;
+    }
+    .boton {
+        background-color: rgb(238, 238, 230);
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+    }
+    .img {
+        width: 150px;
+        height: 200px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    .images {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+    }
+    .rs {
+        margin: 10px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 18px;
+    }
+    .rs a {
+        text-decoration: none;
+        color: #222;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .rs a i {
+        font-size: 24px;
+        color: #6D8196;
+    }
+    .rs a:hover {
+        color: #6D8196;
+    }
+    .social-links {
+        list-style: none;
+        padding: 0;
+    }
+    .mensaje-error {
+        background: #fee2e2;
+        color: #b91c1c;
+        border: 1px solid #fca5a5;
+        padding: 10px 14px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        display: none;
+    }
+    .mensaje-exito {
+        background: #dcfce7;
+        color: #15803d;
+        border: 1px solid #86efac;
+        padding: 10px 14px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        display: none;
+    }
+    .img:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s;
+    }
+    nav a:hover {
+        color: #dcdcdc;
+        text-decoration: underline;
+        font-size: 85%;
+    }
+</style>
+<body>
+    <header>
+        <h1>Bautista Baravalle</h1>
+        <p>"Cuando el mundo tire para abajo, es mejor no estar atado a nada."</p>
+    </header>
+    <nav>
+        <a href="#bienvenido">Inicio</a>
+        <a href="#Intereses">Intereses</a>
+        <a href="#Calificacion">Calificaciones</a>
+        <a href="#Redes">Redes Sociales</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    <main>
+        <div id="bienvenido" class="card">
+            <h2>Bienvenido</h2>
+            <p>
+                ¡Hola! Soy Bautista Baravalle, un estudiante del Instituto Tecnico Salesiano Villada. En esta pagina encontrarás información sobre mis intereses, mis calificaciones en diferentes materias, mis redes sociales y un formulario de contacto para que puedas comunicarte conmigo. ¡Cualquier duda, comunicate conmigo!
+            </p>
+        </div>
+        <div id="Intereses" class="card">
+            <h2>Intereses</h2>
+            <p>
+                Mis intereses son variados, pero se pueden clasificar en:
+            </p>
+            <ul>
+                <li>Cine</li>
+                <li>Filosofia</li>
+                <li>Literatura</li>
+                <li>Musica</li>
+                <li>Gaming</li>
+            </ul>
+            <h2>Peliculas favoritas:</h2>
+            <div class="images">
+                <img class="img" src="https://posterspy.com/wp-content/uploads/2023/12/mulholland-drive_POSTER-1200x1778.jpg" alt="Mulholland Drive poster">
+                <img class="img" src="https://i.pinimg.com/736x/bf/fd/1b/bffd1b3ca76de406fa06e9c20a728fe2.jpg" alt="Into The Spiderverse poster">
+                <img class="img" src="https://i.pinimg.com/736x/74/89/0e/74890eff94f1f1aadd7163ff72ca560e.jpg" alt="Twin Peaks: Fire Walks With Me poster">
+                <img class="img" src="https://i.ebayimg.com/images/g/mTcAAOSwLV1msqBE/s-l1600.webp" alt="All that jazz poster">
+            </div>
+        </div>
+        <div id="Calificacion" class="card">
+            <h2>Calificaciones</h2>
+            <p>
+                A continuación se muestra una tabla con mis calificaciones en diferentes materias:
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Calificacion</th>
+                        <th>Correo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Analisis Matematico</td>
+                        <td>10</td>
+                        <td>m.flores@itsv.edu.ar</td>
+                    </tr>
+                    <tr>
+                        <td>Base de datos</td>
+                        <td>9</td>
+                        <td>g.calfin@itsv.edu.ar</td>
+                    </tr>
+                    <tr>
+                        <td>Historia</td>
+                        <td>9.7</td>
+                        <td>e.pons@itsv.edu.ar</td>
+                    </tr>
+                    <tr>
+                        <td>Fisica</td>
+                        <td>9</td>
+                        <td>l.berrier@itsv.edu.ar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="Redes" class="card">
+            <h2>A continuacion, mis diferentes redes sociales</h2>
+            <ul class="social-links">
+                <li class="rs"><a href="https://www.instagram.com/baubaravalle/"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li class="rs"><a href="https://www.youtube.com/@bautistabaravalle5865"><i class="fab fa-youtube"></i> Youtube</a></li>
+                <li class="rs"><a href="https://x.com/545Bauty/"><i class="fab fa-twitter"></i> X</a></li>
+            </ul>
+        </div>
+        <div id="contacto" class="card">
+            <h2>Contacto</h2>
+            <p>Completá el formulario y me pongo en contacto a la brevedad.</p>
+            <br>
+
+            <div class="mensaje-error" id="mensajeError"></div>
+            <div class="mensaje-exito" id="mensajeExito"></div>
+
+            <form id="formularioContacto">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" name="name">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" class="form-control" id="email" name="email">
+                <label for="message">Mensaje:</label>
+                <textarea class="form-control" id="message" name="message" placeholder="Escribí tu mensaje acá..." maxlength="300"></textarea>
+                <div class="contador" id="contador">0 / 300 caracteres</div>
+                <input type="submit" class="boton" value="Enviar">
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const textarea = document.getElementById('message');
+        const contador = document.getElementById('contador');
+
+        textarea.addEventListener('input', function () {
+            const cantidad = textarea.value.length;
+            contador.textContent = cantidad + ' / 300 caracteres';
+
+            if (cantidad >= 270) {
+                contador.classList.add('limite');
+            } else {
+                contador.classList.remove('limite');
+            }
+        });
+
+        const formulario = document.getElementById('formularioContacto');
+        const mensajeError = document.getElementById('mensajeError');
+        const mensajeExito = document.getElementById('mensajeExito');
+
+        formulario.addEventListener('submit', function (evento) {
+            evento.preventDefault();
+
+            const nombre  = document.getElementById('name').value.trim();
+            const email   = document.getElementById('email').value.trim();
+            const mensaje = document.getElementById('message').value.trim();
+
+            mensajeError.style.display = 'none';
+            mensajeExito.style.display = 'none';
+
+            if (nombre === '' || email === '' || mensaje === '') {
+                mensajeError.textContent = '⚠️ Por favor completá todos los campos antes de enviar.';
+                mensajeError.style.display = 'block';
+                return;
+            }
+
+            mensajeExito.textContent = '✅ ¡Mensaje enviado correctamente! Gracias, ' + nombre + '.';
+            mensajeExito.style.display = 'block';
+
+            formulario.reset();
+            contador.textContent = '0 / 300 caracteres';
+            contador.classList.remove('limite');
+        });
+    </script>
+</body>
+</html>
