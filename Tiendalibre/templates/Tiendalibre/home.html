@@ -1,11 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
-</head>
-<body>
-    <h1>Productos</h1>
-</body>
-</html>
+{% extends "Tiendalibre/base.html" %}
+
+{% block title %}
+Inicio - TiendaLibre
+{% endblock %}
+
+{% block content %}
+    <h2>Se muestran a continuacion, los productos cargados en el admin.</h2>
+    <div class="row g-4">
+        {% for producto in productos %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+
+                    {% if producto.imagen %}
+                        <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}" style="height: 220px; object-fit: cover;">
+                    {% else %}
+                        <div class="bg-secondary text-white text-center p-5">
+                            Sin imagen
+                        </div>
+                    {% endif %}
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ producto.nombre }}</h5>
+                        <p class="card-text">{{ producto.descripcion }}</p>
+                        <p><strong>Marca:</strong> {{ producto.marca }}</p>
+                        <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+                        <p><strong>Stock:</strong> {{ producto.stock }}</p>
+                    </div>
+
+                </div>
+            </div>
+        {% empty %}
+            <p>No hay productos cargados.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
