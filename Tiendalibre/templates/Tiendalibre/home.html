@@ -6,16 +6,25 @@ Inicio - TiendaLibre
 
 {% block content %}
     {% if usuario_logueado %}
-        <h3>Productos destacados:</h3>
-        <ul class="list-group fw-bold border-2 rounded-3 p-3 m-3">
+        <h3>{{ titulo|title }}</h3>
+        <ul class="row g-3 list-unstyled fw-bold p-3 m-3">
             {% for producto in productos_destacados %}
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    {{ producto.nombre }} - Precio: ${{ producto.precio }}
-                    {% if producto.stock == 0 %}
-                        <span class="badge rounded-pill text-bg-danger">Stock: {{ producto.stock }}</span>
-                    {% else %}
-                        <span class="badge bg-primary rounded-pill">Stock: {{ producto.stock }}</span>
-                    {% endif %}
+                <li class="col-12 col-md-6">
+                    <div class="list-group-item border rounded-3 p-3 d-flex justify-content-between align-items-center h-100">
+                        <span>
+                            {{ producto.nombre|default:"sin dato" }} -
+                            Precio: ${{ producto.precio|default:"sin dato" }} -
+                            Descripción: {{ producto.descripcion|default:"sin dato"|truncatechars:50 }}
+                        </span>
+
+                        {% if producto.stock == 0 %}
+                            <span class="badge rounded-pill text-bg-danger">agotado</span>
+                        {% else %}
+                            <span class="badge bg-primary rounded-pill">
+                                Stock: {{ producto.stock|default:"sin dato" }}
+                            </span>
+                        {% endif %}
+                    </div>
                 </li>
             {% endfor %}
         </ul>
