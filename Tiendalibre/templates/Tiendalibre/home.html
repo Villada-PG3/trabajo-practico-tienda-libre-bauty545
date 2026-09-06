@@ -7,6 +7,9 @@ Inicio - TiendaLibre
 {% block content %}
     {% if usuario_logueado %}
         <h3>{{ titulo|title }}</h3>
+        <div class="alert alert-success" role="alert">
+        ¡Bienvenido!
+        </div>
         <ul class="row g-3 list-unstyled fw-bold p-3 m-3">
             {% for producto in productos_destacados %}
                 <li class="col-12 col-md-6">
@@ -29,6 +32,8 @@ Inicio - TiendaLibre
             {% endfor %}
         </ul>
     {% else %}
-        <p>Por favor, inicia sesión para ver los productos destacados.</p>
+        <div class="alert alert-warning" role="alert">
+        Por favor, logueese para ver los productos destacados.
+        </div>
     {% endif %}
 {% endblock %}

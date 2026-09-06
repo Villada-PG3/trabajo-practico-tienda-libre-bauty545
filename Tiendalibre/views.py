@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Producto
+from random import random
 
 def home(request):
     productos = Producto.objects.all()
@@ -17,7 +18,7 @@ def home(request):
     context = {
         'titulo': '🎸 Tienda de instrumentos musicales',
         'productos_destacados': productos_destacados,
-        'usuario_logueado': True
+        'usuario_logueado': random() < 0.80,  # Simulación de usuario logueado o no
     }
 
     return render(request, "Tiendalibre/home.html", context)
