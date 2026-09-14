@@ -1,0 +1,57 @@
+{% extends "Tiendalibre/base.html" %}
+
+{% block title %}
+{{ producto.nombre }} - TiendaLibre
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow-sm">
+
+            {% if producto.imagen %}
+                <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+            {% else %}
+                <div class="bg-secondary text-white text-center p-5">
+                    Sin imagen
+                </div>
+            {% endif %}
+
+            <div class="card-body">
+                <h1 class="card-title">{{ producto.nombre }}</h1>
+
+                <p class="card-text">
+                    {{ producto.descripcion }}
+                </p>
+
+                <p>
+                    <strong>Marca:</strong> {{ producto.marca }}
+                </p>
+
+                <p>
+                    <strong>Categoría:</strong>
+                    {% if producto.categoria %}
+                        {{ producto.categoria.nombre }}
+                    {% else %}
+                        Sin categoría
+                    {% endif %}
+                </p>
+
+                <p>
+                    <strong>Precio:</strong> ${{ producto.precio }}
+                </p>
+
+                <p>
+                    <strong>Stock:</strong>
+                    {% if producto.stock > 0 %}
+                        <span class="badge bg-success">{{ producto.stock }} disponibles</span>
+                    {% else %}
+                        <span class="badge text-bg-danger">Agotado</span>
+                    {% endif %}
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

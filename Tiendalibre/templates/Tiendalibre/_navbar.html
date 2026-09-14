@@ -1,7 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand" href="/"> 🛒 TiendaLibre</a>
-
+        {% if request.resolver_match.url_name == 'detalle_producto' %}
+            <a class="navbar-brand" href="/catalogo/">⬅</a>
+        {% endif %}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContenido">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,9 +13,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Inicio</a>
                 </li>
-
                 <li class= "nav-item">
                     <a class="nav-link" href="/acerca-de-mi">Acerca de mi</a>                  
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/catalogo/">Catálogo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/">Admin</a>
