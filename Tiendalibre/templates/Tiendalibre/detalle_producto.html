@@ -1,57 +1,79 @@
 {% extends "Tiendalibre/base.html" %}
+{% load static %}
 
 {% block title %}
 {{ producto.nombre }} - TiendaLibre
 {% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-5">
-        <div class="card shadow-sm">
+<link rel="stylesheet" href="{% static 'static/css/estilos.css' %}">
 
-            {% if producto.imagen %}
-                <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
-            {% else %}
-                <div class="bg-secondary text-white text-center p-5">
-                    Sin imagen
+<section class="producto-detalle py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <article class="card producto-card">
+
+                <div class="producto-imagen-contenedor">
+                    {% if producto.imagen %}
+                        <img
+                            src="{{ producto.imagen.url }}"
+                            class="producto-imagen"
+                            alt="{{ producto.nombre }}"
+                        >
+                    {% else %}
+                        <div class="producto-sin-imagen">
+                            <span>Sin imagen</span>
+                        </div>
+                    {% endif %}
                 </div>
-            {% endif %}
 
-            <div class="card-body">
-                <h1 class="card-title">{{ producto.nombre }}</h1>
+                <div class="card-body producto-card-body">
+                    <h1 class="producto-titulo">{{ producto.nombre }}</h1>
 
-                <p class="card-text">
-                    {{ producto.descripcion }}
-                </p>
+                    <p class="producto-descripcion">
+                        {{ producto.descripcion }}
+                    </p>
 
-                <p>
-                    <strong>Marca:</strong> {{ producto.marca }}
-                </p>
+                    <div class="producto-info">
+                        <div class="producto-info-item">
+                            <span class="producto-info-label">Marca</span>
+                            <span class="producto-info-valor">{{ producto.marca }}</span>
+                        </div>
 
-                <p>
-                    <strong>Categoría:</strong>
-                    {% if producto.categoria %}
-                        {{ producto.categoria.nombre }}
-                    {% else %}
-                        Sin categoría
-                    {% endif %}
-                </p>
+                        <div class="producto-info-item">
+                            <span class="producto-info-label">Categoría</span>
+                            <span class="producto-info-valor">
+                                {% if producto.categoria %}
+                                    {{ producto.categoria.nombre }}
+                                {% else %}
+                                    Sin categoría
+                                {% endif %}
+                            </span>
+                        </div>
 
-                <p>
-                    <strong>Precio:</strong> ${{ producto.precio }}
-                </p>
+                        <div class="producto-info-item producto-precio-fila">
+                            <span class="producto-info-label">Precio</span>
+                            <span class="producto-precio">${{ producto.precio }}</span>
+                        </div>
 
-                <p>
-                    <strong>Stock:</strong>
-                    {% if producto.stock > 0 %}
-                        <span class="badge bg-success">{{ producto.stock }} disponibles</span>
-                    {% else %}
-                        <span class="badge text-bg-danger">Agotado</span>
-                    {% endif %}
-                </p>
-
-            </div>
+                        <div class="producto-info-item">
+                            <span class="producto-info-label">Stock</span>
+                            <span class="producto-info-valor">
+                                {% if producto.stock > 0 %}
+                                    <span class="badge bg-success producto-stock">
+                                        {{ producto.stock }} disponibles
+                                    </span>
+                                {% else %}
+                                    <span class="badge bg-danger producto-stock">
+                                        Agotado
+                                    </span>
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </div>
     </div>
-</div>
+</section>
 {% endblock %}
