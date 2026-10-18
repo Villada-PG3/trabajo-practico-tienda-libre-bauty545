@@ -19,13 +19,13 @@ from django.contrib.admin import views
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from Tiendalibre.views import home, sobremi, catalogo, detalle_producto
+from Tiendalibre.views import HomeView, sobremi, CatalogoView, detalle_producto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
+    path('', HomeView.as_view(), name='home'),
     path('acerca-de-mi/', sobremi, name='acerca-de-mi'),
-    path('catalogo/', catalogo, name='catalogo'),
+    path('catalogo/', CatalogoView.as_view(), name='catalogo'),
     path("producto/<int:pk>/", detalle_producto, name="detalle_producto"),
 ]
 

@@ -1,28 +1,30 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import TemplateView, ListView
 from .models import Producto
-from random import random
 
-def home(request):
-    productos = Producto.objects.all()[:3]
-    
-    context = {
-        'titulo': '🎸 Tienda de instrumentos musicales',
-        'productos_destacados': productos,
-        'usuario_logueado': random() < 0.80,  # Simulación de usuario logueado o no
-    }
+class HomeView(TemplateView):
+    template_name = "Tiendalibre/home.html"
 
-    return render(request, "Tiendalibre/home.html", context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["titulo"] = "Productos destacados"
+        context["productos_destacados"] = Producto.objects.all()[:6]
+
+        return context
     
 def sobremi(request):
     return render(request, 'Tiendalibre/sobremi.html', {})
 
-def catalogo(request):
-    productos = Producto.objects.all()
-    context = {
-        'titulo': 'Catálogo de productos',
-        'productos': productos,
-    }
-    return render(request, 'Tiendalibre/catalogo.html', context)
+class CatalogoView(ListView):
+    model = Producto
+    template_name = 'Tiendalibre/catalogo.html'
+    context_object_name = 'productos'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['titulo'] = 'Catálogo de productos'
+        return context
 
 def detalle_producto(request, pk):
     producto = get_object_or_404(Producto, pk=pk)
